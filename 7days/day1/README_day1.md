@@ -33,3 +33,48 @@ source /.bash_profile
 ```
 
 ## 3. Set-up `Go` Workspace
+
+- First create a folder wherever you want.
+```bash
+mkdir go-learn
+```
+
+- Initialize go in the directory using this command:
+```bash
+go init mod example/hello
+```
+
+- After entering the above command, the directory will be workspace to work on `go`.
+
+- Create a file with `.go` as extension & open in any editor. As it supports almost every IDEs.
+## 4. Run your first program
+- Enter this code,
+```go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello World!")
+}
+```
+- Right after saving the file, enter this command to run your first `Go` program:
+```bash
+go run .
+```
+or
+```bash
+go run <filename>
+```
+## 5. Tools & Features
+- To look for packages, visit this [pck.go.dev](https://pkg.go.dev/)
+- To download & install packages,
+```bash
+go get <pkg.go.dev package name>
+```
+
+- To install all the package that are used in the `.go` file:
+```bash
+go mod tidy
+```
+> The command will download the packages used in go files that are not yet download. 
