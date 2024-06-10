@@ -191,3 +191,5 @@ var y float64 = 5.5
 sum := float64(x) + y // converting x to float64 before addition
 ```
 In this case, `x` converted to `float64`  right before adding to `y`.
+
+# [Day 2 -Assignments👆[Click here]](./assignment-day2/assignment.md)
