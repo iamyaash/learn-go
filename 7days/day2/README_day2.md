@@ -171,3 +171,23 @@ func main() {
 > %T - Format Specifier used to print Type
 
 > %v - Format Specifier used to print value
+
+## Type Casting:
+Type casting, or type conversion, is the **process of changing the data type of a variable to another basic data type**, allowing operations between different types, such as *converting an integer to a floating-point number or vice versa*.
+
+
+**Example**:
+```go
+var x int = 10
+var y float64 = float64(x)
+```
+Here, `float64(x)` converts the value of `x` from `int` to `float64`.
+
+**Example**:
+```go
+var x int = 10
+var y float64 = 5.5
+
+sum := float64(x) + y // converting x to float64 before addition
+```
+In this case, `x` converted to `float64`  right before adding to `y`.
