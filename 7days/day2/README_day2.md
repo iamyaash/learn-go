@@ -77,4 +77,97 @@ var rolno int = 69
 // Shorthand declaration with initialization
 name := "John"
 ```
+## Data Types:
+## Basic Data Types:
+### 1. Numeric Data Types:
 
+#### Integer Data Types
+Signed integer data type, it's size can vary however it'll atleast be `32-bits`.
+
+| dtype  | Definition              | Example |
+| ------ | ----------------------- | ------- |
+| int8   | 8-bit Signed Integer    | None    |
+| int16  | 16-bit Signed Integer   | None    |
+| int32  | 32-bit Signed Integer   | None    |
+| int64  | 64-bit Signed Integer   | None    |
+| uint8  | 8-bit Unsigned Interger | None    |
+| uint16 | 16-bit Unsigned Integer | None    |
+| uint32 | 32-bit Unsigned Integer | None    |
+| uint64 | 64-bit Unsigned Integer | None    |
+> Note: Both `int` & `uint` contain same size, that's either 32-bits or 64-bits.
+#### Floating Data Types
+It's used to represent **floating-point numbers**. The floating-point numbers are **numbers that has a decimal point**, so that it can represent both **integer** & **fractional** parts.
+
+##### float32 - occupies 32-bits in memory
+- `float32` aka single-precision floating-point format.
+- 7 decimal digits of precision.
+- Suitable if precision is not critical.
+##### float64 - occupies 64-bits in memory
+- `float64` aka double-precision floating-point format.
+- 16 decimal digits of precision.
+- Suitable in mathematical operations where precision is important.
+
+```go
+var num1 float32 = 3.14
+var num2 float64 = 3.141592653589793
+```
+
+**Usage**:
+- `float32`: Used when memory usage is a concern or when precision up to **7 decimal places** is sufficient.
+- `float64`: Provides higher precision and is generally preferred for most calculations requiring floating-point numbers.
+   
+#### Complex Data Types
+
+- `complex64`: Represents complex numbers with float32 real and imaginary parts (each 32 bits).
+- `complex128`: Represents complex numbers with float64 real and imaginary parts (each 64 bits).
+
+These data types are used when you need to deal with **both real and imaginary numbers simultaneously**. They are often used in mathematical **calculations involving complex operations**.
+
+```go
+var c1 complex64 = 5 + 7i   // 32-bit real and imaginary parts
+var c2 complex128 = 10 - 3i // 64-bit real and imaginary parts
+```
+
+**Usage**:
+- The `complex64` type is useful when memory usage is a concern or when dealing with complex numbers that fit within 32 bits.
+- The `complex128` type provides higher precision for more demanding calculations.
+
+### 2. Boolean Data Type:
+Boolearn is a data type, which only take `true` or `false`. It's declared using `bool` keyword.
+> Note: Default value of `bool` is `false`.
+
+```go
+package main
+import ("fmt")
+func main(){
+    var b1 bool = true // typed declaration with initial value
+    var b2 = true // untyped declaration with initial value
+    var b3 bool // typed declaration without initial value
+    b4 := true // untyped declaration with initial value
+
+    fmt.Println(b1)
+    fmt.Println(b2)
+    fmt.Println(b3)
+    fmt.Println(b4)
+}
+```
+
+### 3. String Data Type:
+String data type is used to store a collection of characters. Strings must be surrounded by **double quotes**
+
+```go
+package main
+import ("fmt")
+func main() {
+    var text1 string = "Hello World"
+    var text2 := "Shorthand Hello World"
+    var text3 string
+
+    fmt.Println("Type: %T, Value: %v \n", text1)
+    fmt.Println("Type: %T, Value: %v \n", text2)
+    fmt.Println("Type: %T, Value: %v \n", text3)
+}
+```
+> %T - Format Specifier used to print Type
+
+> %v - Format Specifier used to print value
