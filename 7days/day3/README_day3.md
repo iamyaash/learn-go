@@ -139,4 +139,6 @@ func main() {
     }
 }
 ```
-This loop iterates over each element of the `numbers` slice. `index` represents the index of the current element and  `value` represents the value of the current element. 
+This loop iterates over each element of the `numbers` slice. `index` represents the index of the current element and  `value` represents the value of the current element.
+
+## Switch Statements
