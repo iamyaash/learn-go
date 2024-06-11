@@ -1,4 +1,4 @@
-# Day 4 -Assignment
+# Day 3 -Assignment
 
 ## Conditions
 1. Even or Odd
