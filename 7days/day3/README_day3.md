@@ -142,3 +142,75 @@ func main() {
 This loop iterates over each element of the `numbers` slice. `index` represents the index of the current element and  `value` represents the value of the current element.
 
 ## Switch Statements
+
+The `switch` statements provides a way to execute different blocks of code based on the value of an expression. It's similar to other languages but slightly different approach.
+#### Basic switch conditions
+```go
+package main
+import ("fmt")
+
+func main() {
+    fruit := "apple"
+    switch fruit {
+        case "apple":
+        fmt.Println("It's an appl")
+        
+        case "banana":
+        fmt.Println("It's a banana")
+        
+        default:
+        fmt.Println("Idk bruh")
+    }
+}
+```
+In the above example,
+- `var fruit string = "apple"` is an untyped variable declaration.
+- The `switch` statement checks each `case` value again the value of `fruit`.
+  - i,e. case == fruit
+- If match is found, the respective statement will be executed.
+- Otherwise, `default` block statement is executed.
+
+#### Switch statements with multiple conditions
+Here we can declare multple conditions in `case`,
+```go
+switch num {
+    case 1, 2:
+    fmt.Println("One or two")
+    case 3, 4:
+    fmt.Println("three or four")
+    default:
+    fmt.Prinln("idk bruh")
+}
+```
+
+#### Switch without expression.
+Here, we won't specify expression in `switch` statement.
+
+```go
+fruit := "apple"
+switch {
+    case fruit == "apple":
+    // do something
+    case fruit == "orange":
+    // do something
+    default:
+    // no choice, then execute this
+}
+```
+
+#### Switch with `Fallthrough`
+The `fallthrough` statement is used to execute the next case block even if it doesn't match the expression.
+
+In simple terms, it won't stop after executing one case statement, rather contrinue to execute next case, even if it's false.
+
+```go
+num := 1
+switch num {
+    case 1:
+    // do something
+    fallthrough 
+}
+```
+
+
+# [Day 3 -Assignments [Click Here👆]](./assignment-day3/README-assignment-day3.md)
