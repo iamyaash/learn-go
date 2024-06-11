@@ -2,12 +2,15 @@
 
 Welcome to the `learn-go` repository! This repository is dedicated to learning Go (Golang) through a practice-driven approach. It's designed to store and track progression, providing a clear and structured path for beginners to learn the basics of Go in just 7 days.
 
+## Prerequisites
+- Comfortable using **Command Line Interface**(CLI).
+- (add...)
+
 ## Overview
 
 Learning modules are classified into **days**, showcasing how much a beginner can learn within or on 7 days. By following these modules, learning Go becomes a *piece of cake* 🍰.
 
 ## Structure
-
 | **Day**                                 | **Topics**                                                                                             |
 |-----------------------------------------|--------------------------------------------------------------------------------------------------------|
 | [**Day 1**](./7days/day1/README_day1.md) | 🚀 Introduction and Setup: Installing Go, Go workspace (`GOPATH`, `GOROOT`), basic tools, first program   |
@@ -17,4 +20,10 @@ Learning modules are classified into **days**, showcasing how much a beginner ca
 | [**Day 5**](./7days/day5/README_day5.md) | 🗂️ Data Structures: Arrays, slices (slicing, appending, copying), maps (dictionaries), structs            |
 | [**Day 6**](./7days/day6/README_day6.md) | 📍 Pointers and Methods: Understanding pointers, defining methods on types, interfaces                    |
 | [**Day 7**](./7days/day7/README_day7.md) | ⚙️ Concurrency Basics: Goroutines, channels, select statement                                              |
+> Note: This `learn-go` repository is designed for those who **already have experience** with another programming language. With your existing programming knowledge, you will find it easier to understand and learn `Go` through this repository.
+
+
+
+
+
 
