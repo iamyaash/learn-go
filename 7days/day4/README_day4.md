@@ -206,3 +206,39 @@ func main() {
 4. **Function Parameters and Return Values**: Like named functions, anonymous functions can accept parameters and return values.
 
 > In simple terms, anonymous function works like regular function but a temporarily used.
+
+
+## Closure
+A closure is a function that references variables outside it's body. In `Go`, closures are formed by anonymous function that you can define within another function.
+
+```go
+package main
+import "fmt"
+
+func main() {
+    multier := func() func(int) int {
+        res := 1
+        return func(x int) int {
+            sum *= x
+            return res
+        }
+    }
+
+    var val int = adder()
+
+    for i = 1; i <= 10; i++ {
+        fmt.Println(val(i))
+    }
+}
+```
+
+#### Explanation
+- The displays the sequence of multiplied values of range 10.
+- `multier := func() func(int) int {}`
+  - At first, `func()` takes no arguments.
+  - `func(int) int`, returns integer type from the anonymous function.
+  - Indicates that it takes an `int` param and returns an `int` type\
+- `res := 1` intializes typed integer 1 to `var res`.
+- `return func(x int) int{}`, it defines inner function,
+  - `func(x int)` passing parameter `x`.
+  - A return type of `int`.
