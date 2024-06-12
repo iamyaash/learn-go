@@ -173,3 +173,36 @@ func main() {
     fmt.Println(b)
 }
 ```
+
+## Anonymous Function
+
+An `anonymous function` is a function that doesn't have a name. It is particularly useful when you need to create an **inline function** that is only used *temporarily*, often **passed as an argument to higher-order functions** or used for a **one-time operation**.
+
+##### Syntax
+```go
+// Anonymous Function
+func () {
+    fmt.Println("It's an Anonymous Function)
+}()
+```
+
+##### Example
+```go
+package main
+import ("fmt")
+func main() {
+    result := func(x int , y string)(int, string){
+        res := x + x
+        txt := y + "Hey"
+        return res, txt
+    }(5, "Hello")
+}
+```
+
+#### Key Points
+1. **No Name**: The function does not have a name.
+2. **Inline Definition and Execution**: It is defined and executed inline.
+3. **Temporary Usage**: It is used for temporary purposes where a named function would be unnecessary.
+4. **Function Parameters and Return Values**: Like named functions, anonymous functions can accept parameters and return values.
+
+> In simple terms, anonymous function works like regular function but a temporarily used.
