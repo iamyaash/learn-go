@@ -100,3 +100,56 @@ array3 := [4]int{1, 2, 3, 4}
 **Note:** *Here, both `length[]` and `values{}` are defined, and array itself assigns the value to it elements.*
 
 > **Tip:** using `len()` will return the length of the data-type.
+
+
+## Slices
+Unline arrays, slices are most commanly used and important data type. Providing more **powerful interface to sequence than arrays**.
+
+The length of a slice can grow and shrink as you se fit.
+
+### Ways to create slice:
+####  1. Creating slice from an `array`:
+```go
+var myarray := [length]datatype{values} // an array
+myslice := myarray[start:end]           // slice made from array
+```
+##### Example:
+```go
+arr := [4]int{1, 2, 3, 4}
+myslice := arr[1:2]
+fmt.Println(myslice)
+// [2 3]
+```
+
+#### 2.Using `make()` function:
+```go
+sliceName := make([]type, length, capacity)
+```
+
+#### Example:
+```go
+mySlice := make([]int, 4, 8)
+```
+Here, 
+- `4` is the length of the slice
+- `8` is the capacity of the slice
+**Note:** If capacity parameter is not defined, it will equal to the length. i.e, `if capacity==null, then capacity == length`.
+
+
+#### 3. Using the `[]datatype{values}` format.
+```go
+sliceName := []datatype{values}
+```
+
+##### Example:
+```go
+myslice := []int{}
+fmt.Println(len(myslice))
+fmt.Println(cap(myslice))
+fmt.Println(myslice)
+```
+
+In `Go`, there are two functions that can be used to return the length and capacity of a slice:
+
+- `len()` *function* - returns the length of the slice (the number of elements in the slice)
+- `cap()` *function* - returns the capacity of the slice (the number of elements the slice can grow or shrink to)
