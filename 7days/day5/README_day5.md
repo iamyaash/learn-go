@@ -247,3 +247,214 @@ Copied slice: [1 2 3 4 5]
 Length: 5
 Capacity: 5
 ```
+
+## Maps
+Maps are unordered collection of `key:value` pairs, it provides fast lookups and values that can **retrieve**, **update** or **delete** with the help of keys.
+
+Each element in a map is `key:value` pair and it doesn't allow duplicates. Addtionally, the **default value of map is `nil`**. 
+- It allows any data type that supports `==`(equality operator) such as `bool`, `int`, `string`, `array`, `pointers`, `structs`, `interfaces`...etc,
+- **Any value type is accepted**
+- **Invalid key data types,**
+  - Slices
+  - Maps
+  - Functions
+**Note:** It also holds references to an underlying hash table.
+
+
+#### Ways to Create Maps
+
+1. **Create map using `var` and `:=`(shorthand)**
+##### Syntax:
+```go
+var a = map[KeyType]ValueType{key1:value1, key2:value2, ...}
+b := map[KeyType]ValueType{key1:value1, key2:value2, ...}
+```
+- `[KeyType]ValueType` - Such as `int`, `float`, `string`, `bool`...etc
+- `{key1:value1, ..}`  - strong `values` with their respective `keys`.
+
+
+##### Example:
+```go
+var a = map[string]string{"steve":"jobs", "bill":"gates"}
+b := map[string]string{"steve":"jobs", "bill":"gates"}
+                            // %v value
+fmt.Printf("a\t%v\n", a)    // \t tab spaces
+fmt.Printf("b\t%v\n", b)    // \n new line
+```
+```
+Output:
+
+a   map[steve:jobs bill:gates] 
+b   map[steve:jobs bill:gates]
+```
+<br>
+
+2. **Create using `make()` function**
+##### Syntax:
+```go
+var a = make(map[KeyType]ValueType)
+a := make(map[KeyType]ValueType)
+```
+
+##### Example:
+
+```go
+var a = make(map[string]string{"steve":"jobs", "bill":"gates"})
+b := make(map[string]int{"steve":1, "bill":2})
+fmt.Printf("a\t%v\n", a) 
+fmt.Printf("b\t%v\n", b)
+```
+
+```
+Output:
+
+a   map[steve:jobs bill:gates]
+b   map[steve:1 bill:2]
+```
+
+3. **Create an Empty Map:**
+    1. Using `var` method:
+    ```go
+    var a map[string]string
+    ```
+    2. Using `make()` method:
+    ```go
+    var a = make(map[string]int)
+    ```
+##### Right way to create empty map
+```go
+b := make(map[string]int)
+fmt.Println(b == nil)
+// true
+// trying other way to create map will result in false
+```
+> **Note:** `make()` is the right way to create an empty map. Creating empty map in other way and writing into it will cause runtime error.
+
+#### Accessing Map Elements
+```go
+value = map_name[key]
+```
+##### Example:
+```go
+b := make(map[string]string)
+a["steve"] = "jobs"
+a["bill"] = "gates"
+
+fmt.Println(a["bill"])
+```
+```
+Output:
+
+gates
+```
+
+#### Updating and Adding map Elements:
+
+```go
+map_name[key] = value
+```
+##### Example:
+```go
+b := make(map[string]string{"steve":"jobs", "bill":"gates"})
+b["Sundar"] = "Pichai"  // Adding an Element
+b["bill"] = "ball"
+fmt.Println(b)
+```
+
+```
+Output:
+map[steve:jobs ball:gates Sundar:Pichai]
+```
+
+#### Removing Element from Map:
+
+```go
+delete(map_name, key)
+```
+
+```go
+b := make(map[string]string{"steve":"jobs", "bill":"gates"})
+b["Sundar"] = "Pichai"  // Adding an Element
+b["bill"] = "ball"
+
+delete(b, "ball")
+fmt.Println(b)
+```
+
+```
+Output:
+map[steve:jobs Sundar:Pichai]
+```
+
+#### Specific Element in a Map
+
+```go
+val, ok :=map_name[key]
+```
+##### Example:
+You can check if a key exists in a map by using the syntax `val, ok := map_name[key]`, where:
+
+- `val` is the value associated with the key.
+- `ok` is a boolean that indicates whether the key exists in the map.
+- If you only want to check the existence of the key without caring about the value, you can use the blank identifier `(_)` for val.
+```go
+    car := map[string]string{"brand": "Ford", "model": "Mustang", "year": "1964", "day": ""}
+
+    // Check for existing key "brand" and get its value
+    val1, ok1 := car["brand"]
+
+    // Check for non-existing key "color" and get its value
+    val2, ok2 := car["color"]
+
+    // Check for existing key "day" and get its value (which is an empty string)
+    val3, ok3 := car["day"]
+
+    // Check for existing key "model" without getting its value
+    _, ok4 := car["model"]
+
+    // Print results
+    fmt.Println(val1, ok1)  // Output: Ford true
+    fmt.Println(val2, ok2)  // Output:  false
+    fmt.Println(val3, ok3)  // Output:  true
+    fmt.Println(ok4)        // Output: true
+```
+
+**Note:** When checking for specific element, whether it's available or not and it will obviously return `bool` types.
+
+
+#### Map references to Hash Table
+
+Maps are references type in `Go`. When you assign a variable a map to a variable, both variables refer to  the same underlying data structure `(hash table)`. Hence, changes made to one map affects the others too.
+
+##### Example:
+```go
+pacakge main
+
+import "fmt"
+
+func main() {
+    a := map[string]string{"brand": "Ford", "model": "Mustang", "year": "1964"}
+    
+    b := a                  //assigning a to map b, 
+                            //hence both are pointing to the same map
+    fmt.Println("Before!")
+    fmt.Println(a)
+    fmt.Println(b)
+    
+    b["year"] = "1970"      //changing value of "year" key in b
+    fmt.Println("After!")
+    fmt.Println(a)
+    fmt.Println(b)
+}
+```
+
+```
+Output:
+
+Before change:
+map[brand:Ford model:Mustang year:1964]
+map[brand:Ford model:Mustang year:1964]
+After change to b:
+map[brand:Ford model:Mustang year:1970]
+map[brand:Ford model:Mustang year:1970]
+```
