@@ -136,13 +136,13 @@ type Employee struct {
 }
 
 func main() {
-    var emp1 Employee
-    var emp2 Employee
+    var emp1 = Employee {
+        name:"Yaash"
+        eage:21
+        role:"Cheif Executive Officer"
+        salary:80000000
+    }
 
-    emp1.name = "Yaash"
-    emp1.age = 21
-    emp1.role = "Cheif Executive Officer"
-    emp.salary = 80000000
 
     fmt.Println(emp1.name)
     fmt.Println(emp1.age)
@@ -157,21 +157,21 @@ package main
 import "fmt"
 
 type Employee struct {
-    name string;
-    age int;
-    role string;
-    salary int;
+    name string
+    age int
+    role string
+    salary int
 }
 
 func main () {
-    var emp1 Employee
-    var emp2 Employee
     //specification
     //use dot notation to declare `str var` name with `str member`
-    emp1.name = "Yaash"                 
-    emp1.age = 21
-    emp1.role = "Cheif Executive Officer"
-    emp.salary = 80000000
+    var emp1 = Employee { 
+        name:"Yaash",              
+        age:21,
+        role:"Cheif Executive Officer",
+        salary:80000000,
+    }
     //function call
     printEmp(emp1)
 }
