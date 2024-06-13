@@ -153,3 +153,97 @@ In `Go`, there are two functions that can be used to return the length and capac
 
 - `len()` *function* - returns the length of the slice (the number of elements in the slice)
 - `cap()` *function* - returns the capacity of the slice (the number of elements the slice can grow or shrink to)
+
+### Append Elements to Slice:
+
+In `Go` we can use the function `append()` to add elements at the end of the slice.
+
+```go
+sliceName := append(sliceName, element1, element2, element3, ...)
+```
+
+#### Appending Elements only
+```go
+mySlice := [4]int{1, 2, 3, 4}
+mySlice := append(mySlice, 5, 6, 7)
+fmt.Println(mySlice)
+// [1 2 3 4 5 6 7]
+```
+Here, 
+1. `mySlice := [4]int{1,2,3,4}`
+   - `mySlice` is a variable holding slice data type
+   - `:=` shorthand symbol that explicitly assigns the data type based on the right-hand side value.
+   - `[4]` is the lenght of the slice.
+   - `int` is the datatype.
+   - `{}` is the values of the slice.
+2. `mySlice := append(mySlice, 5, 6, 7)`
+   - `mySlice` is again the variable hoding slice data type.
+   - `append()` is the function that appends the element at the end.
+     - `(mySlice)` - is the slice which elements are appended
+     - `(5, 6 ,7)` these are the values, that are going to be added at the end of the slice.
+
+#### Appending One Slice to Another Slice:
+
+```go
+slice1 := [4]int{1,2,3,4}
+slice2 := [4]int{5,6,7,8}
+myslice := append(slice1, slice2)
+// [1 2 3 4 5 6 7 8]
+```
+
+
+#### Changing Length of the Slice:
+Unlike arrays, in `Go` it is possible to change the length of the slice.
+```go
+arr1 := [6]int{9, 10, 11, 12, 13, 14}
+myslice1 := arr1[1:5] // Slice array
+myslice1 = arr1[1:3] // Change length by re-slicing the array
+myslice1 = append(myslice1, 20, 21, 22, 23) // Change length by appending items
+```
+
+### Copying Elements to Slice:
+
+The `copy()` is a function that takes two slices`dest` & `src` and copies data from `src` to `dest`. It returns the number if elements copied.
+```go
+copy(dest, src)
+```
+
+##### Example:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    nums := []int{1, 2, 3, 4, 5, 6, 7, 8}
+    fmt.Println("Original slice:", nums)
+    fmt.Println("Length:", len(nums))
+    fmt.Println("Capacity:", cap(nums))
+
+    // Create a copy with only needed numbers
+    newnums := nums[:len(nums)-3] // Exclude last 3 numbers
+    numscpy := make([]int, len(newnums))
+    copy(numscpy, newnums)      // (dest, src)
+
+    fmt.Println("Copied slice:", numscpy)
+    fmt.Println("Length:", len(numscpy))
+    fmt.Println("Capacity:", cap(numscpy))
+}
+```
+
+**Here's what this code does:**
+
+1. Initializes a slice `nums` with numbers from 1 to 8.
+2. Prints original slice `nums`, its length, and capacity.
+3. Creates a copy of `nums` with only the first 5 elements.
+4. Prints the copied slice, its length, and capacity.
+
+```
+Original slice: [1 2 3 4 5 6 7 8]
+Length: 8
+Capacity: 8
+Copied slice: [1 2 3 4 5]
+Length: 5
+Capacity: 5
+```
