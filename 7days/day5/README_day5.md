@@ -101,6 +101,97 @@ array3 := [4]int{1, 2, 3, 4}
 
 > **Tip:** using `len()` will return the length of the data-type.
 
+## Struct
+
+Struct is short for **structure** and is used to create a **collection of members of different data types**, into a **single variable**.
+
+While arrays are used to **multiple value of same type into a single variabe**, structs are used to store **multiple values of different type into a single variable**.
+
+In simple terms,
+- Arrays -> `n-values` of `same type` into single `var`.
+- Struct -> `n-values` of `diff type` into single `var`.
+
+#### Declaring a Struct
+##### Syntax
+```go
+type struct_name struct{
+    member1 datatype;
+    member2 datatype;
+    .
+    .
+    .
+}
+```
+#### Accessing Struct Members
+#### Example:
+```go
+package main 
+import "fmt"
+
+type Employee struct {
+    name string;
+    age int;
+    role string;
+    salary int;
+}
+
+func main() {
+    var emp1 Employee
+    var emp2 Employee
+
+    emp1.name = "Yaash"
+    emp1.age = 21
+    emp1.role = "Cheif Executive Officer"
+    emp.salary = 80000000
+
+    fmt.Println(emp1.name)
+    fmt.Println(emp1.age)
+    fmt.Println(emp1.role)
+    fmt.Println(emp1.salary)
+}
+```
+
+#### Passing Struct as Function Arguments
+```go
+package main
+import "fmt"
+
+type Employee struct {
+    name string;
+    age int;
+    role string;
+    salary int;
+}
+
+func main () {
+    var emp1 Employee
+    var emp2 Employee
+    //specification
+    //use dot notation to declare `str var` name with `str member`
+    emp1.name = "Yaash"                 
+    emp1.age = 21
+    emp1.role = "Cheif Executive Officer"
+    emp.salary = 80000000
+    //function call
+    printEmp(emp1)
+}
+
+func printEmp(emp Employee){
+    fmt.Println(emp.name)
+    fmt.Println(emp.age)
+    fmt.Println(emp.role)
+    fmt.Println(emp.salary)
+}
+```
+
+```
+Output:
+
+Yaash
+21
+Cheif Executive Officer
+8000000
+```
 
 ## Slices
 Unline arrays, slices are most commanly used and important data type. Providing more **powerful interface to sequence than arrays**.
@@ -458,3 +549,4 @@ After change to b:
 map[brand:Ford model:Mustang year:1970]
 map[brand:Ford model:Mustang year:1970]
 ```
+
