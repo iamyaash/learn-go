@@ -4,7 +4,7 @@
 - Arrays are used to store sequence of multiple values of same type in a single variable. Instead of declaring separate variables for each value.
 - In `Go`, slices are most commonly used data structure rather than arrays. Since it's only used in special occasions.
 
-#### Creating/Declaring an Array:
+### Creating/Declaring an Array:
 1. With `var` keyword, which is used to declare a variable.
 ```go
 var arrName = [length]dataType{Values,......nValues} 
@@ -13,14 +13,14 @@ var arrName = [length]dataType{Values,......nValues}
 ```go
 var arrName := [...]dataType{values}
 ```
-##### Example:
+#### Example:
 ```go
 var arrName [8]int = [8]int{1, 2, 3, 4, 5, 6, 7, 8}
 arrName := [8]int{1, 2, 3, 4, 5, 6, 7, 8}
 arrName := [...]int{1, 2, 3, 4, 5, 6, 7, 8}
 ```
 
-#### Declaring an Array
+### Declaring an Array
 
 ```go
 arr1 = [4]int{1,2,3,4}          // []int{1,2,...}
@@ -36,7 +36,7 @@ Here,
 - At the end, the output is printed using `fmt` package.
 - **Note:** We also declare nothing inside`[length]`, and providing `values{}` can be defined. Here the is `inferred`.
 
-#### Accessing Element of an Array:
+### Accessing Element of an Array:
 
 To access an array, we must learn the positions of array. Just like the lists in other programming languages, the **first element of an array is always 0**.
 
@@ -45,7 +45,7 @@ The **first** or the **Nth** element is accessed using,
 - [1] -> for **second** element.
 - [n] -> for **Nth** element.
 
-##### Example:
+#### Example:
 ```go
 array_name := [4]int{10, 20, 30, 40}
 first := prices[0]
@@ -55,7 +55,7 @@ fmt.Println(second)
 ```
 Here, we access the `Nth` element by `array_name[position-1]`.
 
-#### Changing Element of an Array:
+### Changing Element of an Array:
 ```go
 array_name := [4]int{10, 20, 30, 40}
 array_name[1] = 88 // [1] = {20}
@@ -64,7 +64,7 @@ fmt.Println(array_name)
 ```
 **Note :**  We've changed the `element of an array` by assigning value to it by using `=(equal)`, not `:=` shorthand. Keep this in mind, and don't make this mistake.
 
-#### Changing Specific Element of an Array:
+### Changing Specific Element of an Array:
 ```go
 arr := [4]int{1:8,2:17}
 // 0 8 17 0
@@ -76,7 +76,8 @@ arr := [4]int{1:8,2:17}
 Before working on Arrays, we should know what is happening and how the values are declared inside. We'll take some cases and understand this while looking into it.
 
 **The default value for `int = 0` & `string=""`**.
-##### Case 1
+
+**Case 1**
 ```go
 array1 := [4]int{}
 // [0 0 0 0]
@@ -85,14 +86,14 @@ array1 := [4]int{}
 Just because the array is filled with 0's doesn't mean it's empty, but the array is declared and by default it assigns 0's to every elements.*
 
 
-##### Case 2
+**Case 2**
 ```go
 array2 := [4]int{1, 2}
 // [1 2 0 0]
 ```
 **Note:** *This is a partially initialized array. Here, we did defined the `length[]` and partially defined the `values{1, 2}` as well. Hence, the first 2 elements are defined, the array assigns 1 & 2 to it's elements but assigns the default value to the rest of the elements*
 
-##### Case 3
+**Case 3**
 ```go
 array3 := [4]int{1, 2, 3, 4}
 // 1 2 3 4
@@ -111,8 +112,9 @@ In simple terms,
 - Arrays -> `n-values` of `same type` into single `var`.
 - Struct -> `n-values` of `diff type` into single `var`.
 
-#### Declaring a Struct
-##### Syntax
+### Declaring a Struct
+
+**Syntax**
 ```go
 type struct_name struct{
     member1 datatype;
@@ -122,7 +124,7 @@ type struct_name struct{
     .
 }
 ```
-#### Accessing Struct Members
+### Accessing Struct Members
 #### Example:
 ```go
 package main 
@@ -151,7 +153,7 @@ func main() {
 }
 ```
 
-#### Passing Struct as Function Arguments
+### Passing Struct as Function Arguments
 ```go
 package main
 import "fmt"
@@ -199,7 +201,7 @@ Unline arrays, slices are most commanly used and important data type. Providing 
 The length of a slice can grow and shrink as you se fit.
 
 ### Ways to create slice:
-####  1. Creating slice from an `array`:
+1. **Creating slice from an `array`**:
 ```go
 var myarray := [length]datatype{values} // an array
 myslice := myarray[start:end]           // slice made from array
@@ -212,7 +214,7 @@ fmt.Println(myslice)
 // [2 3]
 ```
 
-#### 2.Using `make()` function:
+2. **Using `make()` function**:
 ```go
 sliceName := make([]type, length, capacity)
 ```
@@ -226,8 +228,8 @@ Here,
 - `8` is the capacity of the slice
 **Note:** If capacity parameter is not defined, it will equal to the length. i.e, `if capacity==null, then capacity == length`.
 
+3. **Using the `[]datatype{values}` format.**
 
-#### 3. Using the `[]datatype{values}` format.
 ```go
 sliceName := []datatype{values}
 ```
@@ -253,7 +255,7 @@ In `Go` we can use the function `append()` to add elements at the end of the sli
 sliceName := append(sliceName, element1, element2, element3, ...)
 ```
 
-#### Appending Elements only
+**Appending Elements only**
 ```go
 mySlice := [4]int{1, 2, 3, 4}
 mySlice := append(mySlice, 5, 6, 7)
@@ -283,7 +285,7 @@ myslice := append(slice1, slice2)
 ```
 
 
-#### Changing Length of the Slice:
+### Changing Length of the Slice:
 Unlike arrays, in `Go` it is possible to change the length of the slice.
 ```go
 arr1 := [6]int{9, 10, 11, 12, 13, 14}
@@ -352,10 +354,11 @@ Each element in a map is `key:value` pair and it doesn't allow duplicates. Addti
 **Note:** It also holds references to an underlying hash table.
 
 
-#### Ways to Create Maps
+### Ways to Create Maps
 
 1. **Create map using `var` and `:=`(shorthand)**
-##### Syntax:
+
+**Syntax**:
 ```go
 var a = map[KeyType]ValueType{key1:value1, key2:value2, ...}
 b := map[KeyType]ValueType{key1:value1, key2:value2, ...}
@@ -381,13 +384,14 @@ b   map[steve:jobs bill:gates]
 <br>
 
 2. **Create using `make()` function**
-##### Syntax:
+
+**Syntax:**
 ```go
 var a = make(map[KeyType]ValueType)
 a := make(map[KeyType]ValueType)
 ```
 
-##### Example:
+#### Example:
 
 ```go
 var a = make(map[string]string{"steve":"jobs", "bill":"gates"})
@@ -412,7 +416,7 @@ b   map[steve:1 bill:2]
     ```go
     var a = make(map[string]int)
     ```
-##### Right way to create empty map
+### Right way to create empty map
 ```go
 b := make(map[string]int)
 fmt.Println(b == nil)
@@ -421,7 +425,7 @@ fmt.Println(b == nil)
 ```
 > **Note:** `make()` is the right way to create an empty map. Creating empty map in other way and writing into it will cause runtime error.
 
-#### Accessing Map Elements
+### Accessing Map Elements
 ```go
 value = map_name[key]
 ```
@@ -439,12 +443,12 @@ Output:
 gates
 ```
 
-#### Updating and Adding map Elements:
+### Updating and Adding map Elements:
 
 ```go
 map_name[key] = value
 ```
-##### Example:
+#### Example:
 ```go
 b := make(map[string]string{"steve":"jobs", "bill":"gates"})
 b["Sundar"] = "Pichai"  // Adding an Element
@@ -457,7 +461,7 @@ Output:
 map[steve:jobs ball:gates Sundar:Pichai]
 ```
 
-#### Removing Element from Map:
+### Removing Element from Map:
 
 ```go
 delete(map_name, key)
@@ -477,7 +481,7 @@ Output:
 map[steve:jobs Sundar:Pichai]
 ```
 
-#### Specific Element in a Map
+### Specific Element in a Map
 
 ```go
 val, ok :=map_name[key]
@@ -513,11 +517,11 @@ You can check if a key exists in a map by using the syntax `val, ok := map_name[
 **Note:** When checking for specific element, whether it's available or not and it will obviously return `bool` types.
 
 
-#### Map references to Hash Table
+### Map references to Hash Table
 
 Maps are references type in `Go`. When you assign a variable a map to a variable, both variables refer to  the same underlying data structure `(hash table)`. Hence, changes made to one map affects the others too.
 
-##### Example:
+#### Example:
 ```go
 pacakge main
 
@@ -549,4 +553,3 @@ After change to b:
 map[brand:Ford model:Mustang year:1970]
 map[brand:Ford model:Mustang year:1970]
 ```
-
