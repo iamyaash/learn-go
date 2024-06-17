@@ -1,6 +1,6 @@
 # Day 7: Concurrency Basics: Goroutines, channels, select statement
 
-## Goroutines:
+## [Goroutines](/research/concurrency/goroutines.md):
 
 Goroutines are a special feature of golang. It is **function** or **method**, in which executes **independently** and **simultaneously** in connection with any other `Goroutines` present in your program.
 
