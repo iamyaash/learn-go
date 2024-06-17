@@ -103,3 +103,37 @@ Regular!
 3. **Start the goroutine**: Use `go` to run a function concurrently, and use `defer wg.Done()` to signal its completion.
 4. **Execute the regular function**: Call the function normally in `main()`.
 5. **Wait for the goroutine to finish**: Use `wg.Wait()` to block until the goroutine completes.
+
+#### Example: Running Multiple Goroutines
+```go
+package main
+import "fmt"
+import "sync"
+
+func display(message string){
+    defer wg.done()
+    fmt.Println(message)
+}
+
+func main() {
+    var wg sync.WaitGroup
+    wg.add(3) //incremented as per 3 goroutines
+    go display("hey1")
+    go display("hey2")
+    go display("hey3")
+
+    wg.Wait()   //wait until it finishes goroutines
+}
+```
+1. **Import** the `sync` package.
+2. Initialize `display()` method with string type param.
+3. In `main()`, create var with sync type and declare increment for 3 goroutines
+4. When each goroutine executes, the count val get's decremented by -1.
+5. After executing, it `wg.Wait()` for other goroutines to finish.
+
+
+## Advantages of Goroutines
+- It helps to execute two or more functions **independently & simultaneously**.
+- Used to run programs in background.
+- It communicate through **private channels**, indicates **safer communication**.
+- We break one task into **multiple tasks to perform better**. 
